@@ -20,6 +20,11 @@ describe User do
       'user_id' => 'KZHR-1H35-2IH8-JXYN',
       'item' => 'Practical Concrete Pants',
       'spend' => '10.00'
+    },
+    {
+      'user_id' => '97JM-291C-OZK3-ELWN',
+      'item' => 'Ergonomic Leather Watch',
+      'spend' => '10.00'
       }]
 
       describe '#find_id' do
@@ -37,6 +42,12 @@ describe User do
       describe '#average_spend' do
         it 'calculates the average spend of selected user' do
           expect(user.average_spend('KZHR-1H35-2IH8-JXYN', purchases_data)).to eq 15.39
+        end
+      end
+
+      describe '#most_loyal_id' do
+        it 'calculates which user has made the most purchases' do
+          expect(user.most_loyal(purchases_data)).to eq 'KZHR-1H35-2IH8-JXYN'
         end
       end
     end

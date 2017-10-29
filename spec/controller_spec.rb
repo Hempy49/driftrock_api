@@ -22,7 +22,12 @@ describe Controller do
       'user_id' => 'KZHR-1H35-2IH8-JXYN',
       'item' => 'Practical Concrete Pants',
       'spend' => '10.00'
-      }]
+      },
+      {
+        'user_id' => '97JM-291C-OZK3-ELWN',
+        'item' => 'Ergonomic Leather Watch',
+        'spend' => '10.00'
+        }]
 
       before do
         allow(api).to receive(:get_user_data).and_return(users_data)
@@ -30,6 +35,7 @@ describe Controller do
         allow(user).to receive(:find_id).and_return('KZHR-1H35-2IH8-JXYN')
         allow(user).to receive(:total_spend).and_return(30.78)
         allow(user).to receive(:average_spend).and_return(15.39)
+        allow(user).to receive(:most_loyal).and_return('KZHR-1H35-2IH8-JXYN')
       end
 
       describe '#user_total_spend' do
@@ -41,6 +47,12 @@ describe Controller do
       describe '#user_average_spend' do
         it 'prints average spend of specified user' do
           expect{ controller.user_average_spend('simon@mail.com') }.to output("15.39\n").to_stdout
+        end
+      end
+
+      describe '#most_loyal_user' do
+        it 'prints the id of most loyal user' do
+          expect{ controller.most_loyal_user }.to output("KZHR-1H35-2IH8-JXYN\n").to_stdout 
         end
       end
     end

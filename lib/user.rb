@@ -31,6 +31,12 @@ class User
     total / count
   end
 
+  def most_loyal(purchases_data)
+    ids = purchases_data.map { |purchase| purchase['user_id'] }
+    users_freq = ids.each_with_object(Hash.new(0)) { |user, freq| freq[user] += 1 }
+    ids.max_by { |id| users_freq[id] }
+  end
+
   private
 
   def users_data
