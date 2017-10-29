@@ -4,6 +4,7 @@ require './lib/api.rb'
 require './lib/user.rb'
 require './lib/controller.rb'
 require 'httparty'
+require 'webmock/rspec'
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::Console,
