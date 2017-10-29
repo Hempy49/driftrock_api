@@ -29,11 +29,18 @@ describe Controller do
         allow(api).to receive(:get_purchase_data).and_return(purchases_data)
         allow(user).to receive(:find_id).and_return('KZHR-1H35-2IH8-JXYN')
         allow(user).to receive(:total_spend).and_return(30.78)
+        allow(user).to receive(:average_spend).and_return(15.39)
       end
 
       describe '#user_total_spend' do
-        it 'prints total spend of user with specified email address' do
+        it 'prints total spend of specified user' do
           expect{ controller.user_total_spend('simon@mail.com') }.to output("30.78\n").to_stdout
+        end
+      end
+
+      describe '#user_average_spend' do
+        it 'prints average spend of specified user' do
+          expect{ controller.user_average_spend('simon@mail.com') }.to output("15.39\n").to_stdout
         end
       end
     end

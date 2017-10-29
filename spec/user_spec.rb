@@ -33,4 +33,10 @@ describe User do
           expect(user.total_spend('KZHR-1H35-2IH8-JXYN', purchases_data)).to eq 30.78
         end
       end
+
+      describe '#average_spend' do
+        it 'calculates the average spend of selected user' do
+          expect(user.average_spend('KZHR-1H35-2IH8-JXYN', purchases_data)).to eq 15.39
+        end
+      end
     end
