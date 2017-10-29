@@ -1,20 +1,20 @@
 require './lib/api.rb'
+require './lib/user.rb'
 
 class Controller
 
-  attr_reader :api
+  attr_reader :api, :user
 
   def initialize
     @api = Api.new
+    @user = User.new
   end
 
-  def run(args)
-    if args[0] == 'get_purchase_data'
-      api.get_purchase_data
-    elsif args[0] == 'get_user_data'
-      api.get_user_data
-    else
-      puts 'Not valid input'
-    end
-  end
+  # def run(args)
+  #   if args[0] == 'find_id'
+  #     user.find_id(args[1])
+  #   else
+  #     puts 'Not valid input'
+  #   end
+  # end
 end

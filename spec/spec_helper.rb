@@ -1,6 +1,7 @@
 require 'simplecov'
 require 'simplecov-console'
 require './lib/api.rb'
+require './lib/user.rb'
 require 'httparty'
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
