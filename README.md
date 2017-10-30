@@ -50,10 +50,10 @@ Data extraction:
 Currently the api class only captures a set pagination (?per_page=1000&page=1) for user and purchase entries. This is highly problematic as it risks not pulling in a complete set of data for each endpoint. With more time I would refactor these methods to account for this.
 
 Refactoring: 
-There is a fair bit of repetition amongst methods, especially in the controller. This could be refactored to make the controller slimmer. 
+There is a fair bit of repetition amongst methods, especially in the controller. This could be refactored to make the controller slimmer. The user class is also quite large and could be separated into two different models, one responsible for methods specific to certain users and one for overall stats e.g. most_loyal, highest_value, most_sold.
 
 Tests: 
-I had some success using web mock to stub get requests in my api_spec. It took me a fair while to find the correct syntax for this so my tests are not as well written and DRY as I would like.  
+I had some success using web mock to stub get requests in my api_spec. It took me a fair while to find the correct syntax for this so my tests are not as well written and DRY as I would like. Removing magic numbers and adding helpers would improve my specs.  
 
 
 
